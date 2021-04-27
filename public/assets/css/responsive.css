@@ -166,17 +166,48 @@
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 825px) and (orientation: landscape) {
+  #hero {
+    justify-content: flex-end;
+  }
+
+  .hero-wrapper {
+    width: 80%;
+  }
+
+  .hero-title,
+  .hero-text,
+  .shop-btn {
+    text-align: right;
+    padding: 10px;
+  }
+
+  .hero-title {
+    font-size: 40px;
+  }
+
+  .hero-text {
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
+@media screen and (max-width: 768px) and (orientation: portrait) {
   #hero {
     background-size: cover;
     background-attachment: fixed;
+    background-position-x: 62%;
+    justify-content: center;
   }
 
   .hero-title,
   .hero-text,
   .shop-btn {
     text-align: center;
-    padding: 10px;
+  }
+
+  .hero-text {
+    font-weight: bold;
   }
 
   .service-wrap h1 {
@@ -233,6 +264,17 @@
     background-position-x: 20%;
     background-position-y: -20%;
     background-size: 350%;
+  }
+
+  .hero-wrapper {
+    width: 100%;
+  }
+
+  .hero-title,
+  .hero-text,
+  .shop-btn {
+    text-align: center;
+    padding: 10px;
   }
 
   .hero-title {
@@ -315,6 +357,30 @@
 
   #tddd {
     display: none;
+  }
+}
+
+@media screen and (max-width: 575px) and (orientation: landscape) {
+  #hero {
+    min-height: 90vh;
+    background-position-x: unset;
+    background-position-y: unset;
+    background-size: 200%;
+  }
+
+  .hero-wrapper {
+    width: 100%;
+  }
+
+  .hero-title,
+  .hero-text,
+  .shop-btn {
+    text-align: center;
+    padding: 10px;
+  }
+
+  .hero-title {
+    font-size: 40px;
   }
 }
 
