@@ -156,7 +156,7 @@ router.post("/payment", (req, res) => {
   // }, 3000);
   setTimeout(() => {
     res.status(200).json({ success: true });
-  }, process.env.PORT || "8080");
+  }, process.env.PORT);
 });
 
 module.exports = router;
