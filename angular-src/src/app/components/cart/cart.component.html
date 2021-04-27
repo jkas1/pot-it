@@ -1,0 +1,111 @@
+<div class="demo">
+  <div class="container" id="viewcart">
+    <!-- if cart is empty -->
+    <div *ngIf="cartData.data[0].numInCart === 0" class="text-center my-5">
+      <h4>Your Cart is Empty</h4>
+      <button class="viewcart-btn btn-lg mt-3" routerLink="/">
+        Back to Homepage
+      </button>
+    </div>
+    <!-- if cart is not empty -->
+    <ng-container *ngIf="cartData.data[0].numInCart !== 0">
+      <div class="row">
+        <div class="col my-4">
+          <table class="table">
+            <thead class="table" id="table-header">
+              <tr class="text-center">
+                <th>Image</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+              </tr>
+            </thead>
+            <tbody id="table-body">
+              <tr *ngFor="let c of cartData.data; let i = index">
+                <td
+                  id="tdd"
+                  class="d-flex align-items-center justify-content-around"
+                >
+                  <img
+                    [src]="c.product.image"
+                    alt="{{ c.product.name }}"
+                    height="60"
+                    class="order-1"
+                  />
+                  <span class="text"
+                    ><i
+                      class="fa fa-trash-o"
+                      (click)="cartService.DeleteProductFromCart(i)"
+                    ></i
+                  ></span>
+                </td>
+                <td id="tdd" class="text-center">
+                  <p>{{ c.product.name }}</p>
+                </td>
+                <td id="tdd" class="text-center">
+                  <p>{{ c.product.price | currency: "USD" }}</p>
+                </td>
+                <td id="tdd">
+                  <form>
+                    <div
+                      class="value-button"
+                      id="decrease"
+                      (click)="ChangeQuantity(i, false)"
+                    >
+                      <i class="fa fa-minus"></i>
+                    </div>
+                    <label>
+                      <input
+                        type="number"
+                        id="number"
+                        [value]="c.numInCart"
+                        readonly
+                        [max]="c.product.quantity"
+                      />
+                    </label>
+                    <div
+                      class="value-button"
+                      id="increase"
+                      (click)="ChangeQuantity(i, true)"
+                    >
+                      <i class="fa fa-plus"></i>
+                    </div>
+                  </form>
+                </td>
+                <td id="tdd" class="text-center">
+                  <p>
+                    {{ cartService.CalculateSubTotal(i) | currency: "USD" }}
+                  </p>
+                </td>
+              </tr>
+              <tr class="border-0">
+                <td style="border: none"></td>
+                <td id="tddd"></td>
+                <td id="tddd"></td>
+                <td>TOTAL</td>
+                <td>{{ cartTotal | currency: "USD" }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-12 d-flex mb-5">
+          <div
+            class="d-flex w-100 justify-content-between flex-x-sm-column flex-md-row"
+          >
+            <button routerLink="/checkout" class="viewcart-btn btn-lg order-1">
+              Checkout
+            </button>
+            <button
+              routerLink="/"
+              fragment="shop"
+              class="viewcart-btn btn-lg order-0"
+            >
+              Continue Shopping
+            </button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

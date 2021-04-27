@@ -1,0 +1,268 @@
+<section id="container">
+  <!--HERO SECTION-->
+  <div id="hero" class="section">
+    <div class="hero-wrapper">
+      <h1 class="hero-title pb-1 my-1">
+        Live green, think green, love green
+        <img class="icon" src="/assets/img/icon.png" alt="icon" />
+      </h1>
+      <p class="hero-text pb-4 my-5">
+        Grow your plant family by finding your perfect plant today!
+      </p>
+      <p class="shop-btn">
+        <button class="hero-btn btn-lg" routerLink="/" fragment="shop">
+          Shop Now
+        </button>
+      </p>
+    </div>
+  </div>
+</section>
+<!--/HERO SECTION-->
+<!-- SERVICES SECTION -->
+<section id="services" class="service-area">
+  <hr class="hr-text" data-content="Our Services" />
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-6">
+        <div class="services">
+          <div class="service-wrap">
+            <i class="fa fa-truck fa-3x"></i>
+            <h1>Free Shipping</h1>
+            <p>Enjoy free shipping and delivery on all orders.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="services">
+          <div class="service-wrap">
+            <i class="fa fa-refresh fa-3x"></i>
+            <h1>Easy Returns</h1>
+            <p>Don't love it? You can return any plant within 60 days!</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="services">
+          <div class="service-wrap">
+            <i class="fa fa-lock fa-3x"></i>
+            <h1>Secure Payments</h1>
+            <p>
+              Protecting your data with secure transactions is our top priority.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="services">
+          <div class="service-wrap">
+            <i class="fa fa-gift fa-3x"></i>
+            <h1>New Products</h1>
+            <p>Our selection of plants is constantly growing!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /SERVICES SECTION -->
+<!-- ABOUT SECTION -->
+<section id="about" class="section">
+  <hr class="hr-text" data-content="About Us" />
+  <div id="about-container" class="container">
+    <div class="row">
+      <div class="about-body">
+        <img class="about-img" src="/assets/img/shop.jpg" alt="about" />
+        <div class="about-text">
+          <p style="font-weight: bold">Welcome to Pot It!</p>
+          <img class="about-icon" src="/assets/img/vect.png" alt="about" />
+          <p>
+            Make us your number one source for all things green. We're dedicated
+            to providing you the very best of house plants, from a wide
+            selection of potted plants, hydroponic plants, succulents, and
+            cactuses.
+          </p>
+          <p>
+            Founded in 2011, Pot It has come a long way from its beginnings in
+            Los Angeles, California. When we first started out, our passion for
+            high quality live plants drove us to start our own business.
+          </p>
+          <p>
+            We hope you enjoy our products as much as we enjoy offering them to
+            you. If you have any questions or comments, please don't hesitate to
+            contact us.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /ABOUT SECTION -->
+<!-- SHOP SECTION -->
+<section id="shop" class="section">
+  <hr class="hr-text" data-content="Featured Products" />
+  <div class="container">
+    <div class="row">
+      <!-- SECTION TITLE -->
+      <div class="col-md-12">
+        <div class="section-title"></div>
+      </div>
+      <!-- /SECTION TITLE -->
+      <!-- PRODUCTS TAB & SLICK -->
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-4 col-sm-6" *ngFor="let p of products">
+            <div class="card my-3">
+              <img
+                [src]="p.image"
+                alt="{{ p.name }}"
+                class="card-img-top"
+                (click)="selectProduct(p.id)"
+              />
+              <div class="card-body">
+                <div class="card-title">
+                  <p>{{ p.name | titlecase }}</p>
+                </div>
+                <div class="card-text">
+                  <p class="price">{{ p.price | currency: "USD" }}</p>
+                </div>
+              </div>
+              <div
+                class="row d-flex justify-content-center border-primary my-3"
+              >
+                <div class="col-md-6">
+                  <button
+                    class="add-btn btn-lg btn-block"
+                    [class.disabled]="p.quantity < 1"
+                    [disabled]="p.quantity < 1"
+                    (click)="AddProduct(p.id)"
+                    style="margin-top: -30px"
+                  >
+                    {{ p.quantity < 1 ? "Not in Stock" : "Add to Cart" }}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- PRODUCTS TAB & SLICK -->
+    </div>
+  </div>
+</section>
+<!-- /SHOP SECTION -->
+<!-- HOT DEAL SECTION -->
+<section id="hot-deal" class="section">
+  <hr />
+  <div id="hd">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="hot-deal">
+            <ul class="hot-deal-countdown">
+              <li>
+                <div>
+                  <h1>03</h1>
+                  <span>Days</span>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <h1>08</h1>
+                  <span>Hours</span>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <h1>26</h1>
+                  <span>Mins</span>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <h1>40</h1>
+                  <span>Secs</span>
+                </div>
+              </li>
+            </ul>
+            <h2 class="text-uppercase">Hot Deal This Week</h2>
+            <p>Succulents Up to 50% OFF</p>
+            <button class="hero-btn btn-lg" routerLink="/" fragment="shop">
+              Shop Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /HOT DEAL SECTION -->
+<!-- SUBSCRIPTION SECTION -->
+<section id="subscription" class="section">
+  <hr class="hr-text" data-content="Join Us" />
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="subscription">
+          <p>Sign up for special offers, care tips, and more dirt!</p>
+          <form>
+            <input
+              class="input"
+              type="text"
+              placeholder="Enter your email here"
+            />
+            <br /><button class="subscription-btn btn-lg" routerLink="/">
+              Subscribe
+            </button>
+          </form>
+          <ul class="subscription-follow">
+            <li>
+              <a href="#" aria-label="Facebook">
+                <i class="fa fa-facebook"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="Twitter">
+                <i class="fa fa-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="Instagram">
+                <i class="fa fa-instagram"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="Pinterest">
+                <i class="fa fa-pinterest"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /SUBSCRIPTION SECTION -->
+<!-- CONTACT SECTION -->
+<section id="contact" class="section">
+  <hr />
+  <div id="ct">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="contact-title">Get in Touch</h1>
+          <p class="contact-text">
+            Any questions? Send us a message and we will get back to you as soon
+            as possible!
+          </p>
+          <form>
+            <input type="text" class="input" placeholder="Name" />
+            <input type="text" class="input" placeholder="Email" />
+            <textarea class="input" rows="3" placeholder="Message"></textarea>
+            <button class="contact-btn btn-lg" routerLink="/">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /CONTACT SECTION -->

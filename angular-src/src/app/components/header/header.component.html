@@ -1,0 +1,148 @@
+<!-- HEADER -->
+<header class="header fixed-top">
+  <!--Navbar-->
+  <div id="header">
+    <div class="container">
+      <div class="row">
+        <!-- LOGO -->
+        <div>
+          <div class="header-logo">
+            <a href="#" class="logo">
+              Pot It
+              <img src="/assets/img/logo.png" alt="icon" />
+            </a>
+          </div>
+        </div>
+        <!-- /LOGO -->
+        <!-- NAVIGATION -->
+        <nav id="navigation" class="navbar navbar-expand-md ml-auto">
+          <div class="container">
+            <!--MENU TOGGLE-->
+            <button
+              class="navbar-toggler col-md-1"
+              type="button"
+              aria-controls="navbarContent"
+              [attr.aria-expanded]="!collapsed"
+              aria-label="Toggle navigation"
+              (click)="collapsed = !collapsed"
+            >
+              <i class="fa fa-bars"></i>
+            </button>
+            <!--/MENU TOGGLE-->
+            <div
+              class="navbar-collapse"
+              [class.collapse]="collapsed"
+              id="navbarContent"
+            >
+              <!-- NAV -->
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/" fragment="services">
+                    Services
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/" fragment="about">
+                    About
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/" fragment="shop"> Shop </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/" fragment="hot-deal">
+                    Hot Deals
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/" fragment="subscription">
+                    Subscribe
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/" fragment="contact">
+                    Contact
+                  </a>
+                </li>
+              </ul>
+              <!-- /NAV -->
+            </div>
+          </div>
+        </nav>
+        <!-- /NAVIGATION -->
+        <!-- ACCOUNT -->
+        <div class="col-x-sm-1 clearfix">
+          <div class="header-ctn">
+            <!-- CART -->
+            <div class="dropdown">
+              <span id="cart" data-toggle="dropdown" aria-expanded="true">
+                <i class="fa fa-shopping-cart"></i>
+                <div class="qty">
+                  {{
+                    cartData.data[0].numInCart !== 0 ? cartData.data.length : 0
+                  }}
+                </div>
+              </span>
+              <div class="cart-dropdown">
+                <div class="cart-list" *ngIf="cartData.data[0].numInCart !== 0">
+                  <div
+                    class="product-widget"
+                    *ngFor="let c of cartData.data; let i = index"
+                  >
+                    <div class="product-img">
+                      <img
+                        src="{{ c.product?.image }}"
+                        alt="{{ c.product?.name }}"
+                        width="20px"
+                      />
+                    </div>
+                    <div class="product-body">
+                      <h3 class="product-name">
+                        <span id="pname">{{ c.product?.name }}</span>
+                      </h3>
+                      <h4 class="product-price">
+                        <span class="qty">{{ c.numInCart }} x </span>
+                        {{ c.product?.price | currency: "USD" }}
+                      </h4>
+                    </div>
+                    <button
+                      class="delete"
+                      (click)="cartService.DeleteProductFromCart(i)"
+                    >
+                      <i class="fa fa-close"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="cart-summary">
+                  <p>
+                    {{
+                      cartData.data[0].numInCart !== 0
+                        ? cartData.data.length
+                        : 0
+                    }}
+                    Item(s) selected
+                  </p>
+                  <h5>TOTAL : {{ cartTotal | currency: "USD" }}</h5>
+                </div>
+                <div class="cart-btns">
+                  <a routerLink="/cart">
+                    View Cart <i class="fa fa-cart-arrow-down"></i>
+                  </a>
+                  <a routerLink="/checkout">
+                    Checkout <i class="fa fa-arrow-circle-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- /CART -->
+          </div>
+        </div>
+        <!-- /ACCOUNT -->
+      </div>
+    </div>
+  </div>
+</header>
+<!-- /HEADER -->

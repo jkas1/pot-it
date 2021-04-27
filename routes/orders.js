@@ -151,9 +151,12 @@ router.post("/new", async (req, res) => {
 
 // payment gateway
 router.post("/payment", (req, res) => {
+  // setTimeout(() => {
+  //   res.status(200).json({ success: true });
+  // }, 3000);
   setTimeout(() => {
     res.status(200).json({ success: true });
-  }, 3000);
+  }, process.env.PORT || "8080");
 });
 
 module.exports = router;
