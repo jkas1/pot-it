@@ -35,7 +35,8 @@ app.use("/api/orders", ordersRoute);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  next(createError(404));
+  // next(createError(404));
+  res.send("Invalid Endpoints");
 });
 
 // error handler
