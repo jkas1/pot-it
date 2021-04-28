@@ -26,7 +26,12 @@
               aria-label="Toggle navigation"
               (click)="collapsed = !collapsed"
             >
-              <i class="fa fa-bars"></i>
+              <div *ngIf="collapsed">
+                <i class="fa fa-bars"></i>
+              </div>
+              <div *ngIf="!collapsed">
+                <i class="fa fa-close"></i>
+              </div>
             </button>
             <!--/MENU TOGGLE-->
             <div
